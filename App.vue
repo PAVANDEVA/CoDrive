@@ -1,6 +1,6 @@
 <template>
   <view class="container">
-    <text class="text-color-primary">My Vue Native App</text>
+    <text class="text-color-primary">My First Vue Native App</text>
   </view>
 </template>
 
