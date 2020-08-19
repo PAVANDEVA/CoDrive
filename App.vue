@@ -1,17 +1,30 @@
+
 <template>
-  <view class="container">
-    <text class="text-color-primary">My First Vue Native App</text>
-  </view>
+ <AppNavigator onNavigationStateChange={null} /> 
 </template>
 
-<style>
-.container {
-  background-color: white;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
+<script>
+import {
+createAppContainer,
+createStackNavigator,
+} from "vue-native-router";
+
+import LoginScreen from "./src/pages/login/login.vue";
+import DashboardScreen from "./src/pages/dashboard/dashboard.vue";
+console.reportErrorsAsExceptions = false;
+const StackNavigator = createStackNavigator(
+{
+login: LoginScreen,
+dashboard: DashboardScreen
+},
+{
+initialRouteName: 'login',
 }
-.text-color-primary {
-  color: blue;
+);
+
+const AppNavigator = createAppContainer(StackNavigator);
+
+export default {
+components: { LoginScreen,AppNavigator },
 }
-</style>
+</script>
