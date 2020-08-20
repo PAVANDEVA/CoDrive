@@ -9,8 +9,8 @@ createAppContainer,
 createStackNavigator,
 } from "vue-native-router";
 
-import LoginScreen from "./src/pages/login/login.vue";
-import DashboardScreen from "./src/pages/dashboard/dashboard.vue";
+import LoginScreen from "./src/Pages/login/login.vue";
+import DashboardScreen from "./src/Pages/dashboard/dashboard.vue";
 console.reportErrorsAsExceptions = false;
 const StackNavigator = createStackNavigator(
 {
