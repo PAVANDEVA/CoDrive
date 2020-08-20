@@ -1,6 +1,6 @@
 
 <template>
- <AppNavigator onNavigationStateChange={null} /> 
+ <AppNavigator/> 
 </template>
 
 <script>
