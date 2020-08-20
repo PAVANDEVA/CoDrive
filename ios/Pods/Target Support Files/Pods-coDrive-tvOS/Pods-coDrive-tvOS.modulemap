@@ -1,6 +1,0 @@
-framework module Pods_coDrive_tvOS {
-  umbrella header "Pods-coDrive-tvOS-umbrella.h"
-
-  export *
-  module * { export * }
-}
