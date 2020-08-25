@@ -10,6 +10,12 @@ target 'coDrive' do
   target 'coDrive-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'RNScreens', :path => '../node_modules/react-native-screens'
+
+    pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
+    pod 'react-native-webview', :path => '../node_modules/react-native-webview'
+
   end
 
   target 'coDriveTests' do
