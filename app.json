@@ -1,4 +1,9 @@
 {
   "name": "coDrive",
-  "displayName": "coDrive"
+  "displayName": "coDrive",
+  "androidStatusBarColor": "#f6980c",
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#f6980c"
+    }
 }

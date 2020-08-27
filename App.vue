@@ -1,8 +1,8 @@
 
 <template>
 <root>
-<script src="http://localhost:8098"></script>
- <AppNavigator/> 
+<!-- <status-bar background-color="rgba(255, 174, 0, 0.986)" bar-style="dark-content" /> -->
+<AppNavigator/> 
 </root>
 </template>
 
@@ -15,6 +15,7 @@ createStackNavigator,
 import Vue from "vue-native-core";
 import LoginScreen from "./src/Pages/login/login.vue";
 import DashboardScreen from "./src/Pages/dashboard/dashboard.vue";
+import { Datetime } from 'vue-datetime';
 import { VueNativeBase } from "native-base";
 import Vuelidate from 'vuelidate';
 import { Toast } from 'native-base';
@@ -22,15 +23,17 @@ import { Root } from "native-base";
 
 Vue.use(Vuelidate)
 Vue.use(VueNativeBase);
-
+Vue.component('datetime', Datetime);
 console.reportErrorsAsExceptions = false;
 const StackNavigator = createStackNavigator(
 {
 login: LoginScreen,
-dashboard: DashboardScreen
+dashboard: DashboardScreen,
+
 },
 {
 initialRouteName: 'login',
+ headerMode: "none"
 }
 );
 

@@ -21,7 +21,7 @@
     </nb-list-item>
     <button class="button-style" :on-press="onSubmit" title="Sign In" color="darkorange" />
     
-    <status-bar background-color="rgba(255, 174, 0, 0.986)" bar-style="dark-content" />
+    
   </view>
 </template>
 
@@ -65,51 +65,50 @@ export default {
 
   methods: {
     onSubmit() { 
-      alert(this.emailValue);
-      alert(this.password);
-      if(!this.emailValue ||!this.password|| !this.consent){
-      if (!this.emailValue) {
-        Toast.show({
-          text: "Invalid email",
-          buttonText: "Okay",
-          duration: 1400,
-        });
-      } else if (!this.password) {
-        Toast.show({
-          text: "Please enter Password",
-          buttonText: "Okay",
-          duration: 1400,
-        });
-      } else  {
-        Toast.show({
-          text: "Please accept the privacy policy to proceed",
-          buttonText: "Okay",
-        });
-      } }else {
+      // if(!this.emailValue ||!this.password|| !this.consent){
+      // if (!this.emailValue) {
+      //   Toast.show({
+      //     text: "Invalid email",
+      //     buttonText: "Okay",
+      //     duration: 1400,
+      //   });
+      // } else if (!this.password) {
+      //   Toast.show({
+      //     text: "Please enter Password",
+      //     buttonText: "Okay",
+      //     duration: 1400,
+      //   });
+      // } else  {
+      //   Toast.show({
+      //     text: "Please accept the privacy policy to proceed",
+      //     buttonText: "Okay",
+      //   });
+      // } }
+      // else {
        // Simple POST request with a JSON body using fetch
-      const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username: this.emailValue,
-          password: this.password,
-        }),
-      };
-      fetch("http://3.7.237.213:8080/login", requestOptions)
-        .then((response) => response.json())
-        .then((data) => (this.data = data));
-        status=JSON.stringify(this.data.status);
-        if(status){
-          alert(JSON.stringify(this.data));
-          //this.navigation.navigate("dashboard")
-        }else{
-          alert("Invalid credentials");
-        }
-      }
+      // const requestOptions = {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({
+      //     username: this.emailValue,
+      //     password: this.password,
+      //   }),
+      // };
+      // fetch("http://3.7.237.213:8080/login", requestOptions)
+      //   .then((response) => response.json())
+      //   .then((data) => (this.data = data));
+        //alert(JSON.stringify(this.data));
+        // status=JSON.stringify(this.data.status);
+        // if(status){
+          //alert(JSON.stringify(this.data));
+          //this.navigation.navigate("home")
+          this.navigation.navigate("dashboard")
+        // }else{
+        //   alert("Invalid credentials");
+        // }
+      
     },
-    goToHomeScreen() {
-      this.navigation.navigate("dashboard");
-    },
+    
     consentChecked() {
       this.consent = !this.consent;
     },
@@ -142,11 +141,13 @@ export default {
   border-bottom-color: slategray;
   border-bottom-width: 1;
   border-radius: 5px;
+  
 }
 .splash-logo {
   align-content: center;
   justify-content: center;
   margin-left: 30;
   margin-top:10;
+  
 }
 </style>
