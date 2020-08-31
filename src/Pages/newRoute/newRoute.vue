@@ -2,15 +2,13 @@
   <view class="container" :style="{backgroundColor: 'white',flex: 1}">
         
     <view class="navbar">
-       <image class="avatar" :style="{marginRight: 'auto'}"
+       <image class="avatar"
        :source="require('/CoDrive/assets/images/person-m.png')"
        />
-       <text class="page" :style="{marginRight: 'auto'}">NEW ROUTE</text>
-       <touchable-opacity :on-press="onPressButton">
-       <image class="logout" :style="{marginLeft: 'auto'}"
+       <text class="page">NEW ROUTE</text>
+       <image class="logout"
         :source="require('/CoDrive/assets/images/person-m.png')"
        />
-       </touchable-opacity>
     </view>
 
     <view class="newRouteForm">
@@ -34,30 +32,18 @@
         <image class="addPoint" :style="{marginTop: 15}"
          :source="require('/CoDrive/assets/images/addpoint.png')"
         />
-        <touchable-opacity :on-press="newTodo">
         <image class="addPoint" :style="{marginTop: 15,marginLeft: 10}"
          :source="require('/CoDrive/assets/images/add.png')"
         />
-        </touchable-opacity>
       </view>
-
-      <!-- <view class="todo" v-for="todo in todos" :key="todo.id">
-        <text v-if="todo.done">{{todo.title}}</text>
-        <text v-else>{{todo.title}}</text>
-        <touchable-opacity :on-press="() => removeTodo(todo.id)">
-          <text>Remove</text>
-        </touchable-opacity>
-      </view> -->
 
       <view class="routeDetails" :style="{paddingTop: 15}">
         <text class="page">Seats</text>
-        <touchable-opacity class="buttonStyling"
-         :style="{borderColor: 'red'}" >
+        <touchable-opacity class="buttonStyling" :style="{borderColor: 'red'}" >
          <text :style="{color: 'red',paddingBottom: 12}">_</text>
         </touchable-opacity>
-        <text class="page" :style="{marginLeft: 5,marginRight: 5}">{{count}}</text>
-        <touchable-opacity class="buttonStyling"
-         :style="{borderColor: 'green',marginLeft: 0,marginRight: 20,paddingBottom: 2}">
+        <text class="page" :style="{marginLeft: 5,marginRight: 5}"> 2 </text>
+        <touchable-opacity class="buttonStyling" :style="{borderColor: 'green',marginLeft: 0,marginRight: 20,paddingBottom: 2}">
          <text :style="{color: 'green'}">+</text>
         </touchable-opacity>
         <text class="page" :style="{marginLeft: 10}">Time</text>
@@ -118,19 +104,19 @@
 
       <view class="navbar" :style="{marginTop: 'auto',height: 60}">
         <view class="navbar" :style="{height : 60,width: '33%',flexDirection: 'column'}">
-          <image :style="{height: 25,width: 25}"
+          <image :style="{height: 40,width: 40}"
            :source="require('/CoDrive/assets/images/myroute.png')"
            />
           <text class="page">My Ride</text>
         </view>
         <view class="navbar" :style="{height : 60,width: '33%',flexDirection: 'column',borderColor: 'brown',borderTopWidth: 3}">
-          <image :style="{height: 25,width: 25}"
+          <image :style="{height: 40,width: 40}"
            :source="require('/CoDrive/assets/images/newroute.png')"
            />
           <text class="page">New Route</text>
         </view>
         <view class="navbar" :style="{height : 60,width: '33%',flexDirection: 'column'}">
-          <image :style="{height: 25,width: 25}"
+          <image :style="{height: 40,width: 40}"
            :source="require('/CoDrive/assets/images/find.png')"
            />
           <text class="page">Find Ride</text>
@@ -141,50 +127,18 @@
 </template>
 
 <script>
-import { Alert } from 'react-native';
+
     export default {
         
         data(){
             return {
-                count: 1,
                 startLocation: "",
                 dropLocation: "",
-                pickupLocation: '',
-                todos: [
-                  {
-                    id: 0,
-                    title: 'jntu',
-                    done: false,
-                  }
-                ]
+                pickupLocation: "",
+                consent: false,
             };
         },
-        methods: {
-          onPressButton: function() {
-            Alert.alert(
-                'Alert',
-                'Are you sure you want to log out?',
-                [
-                    {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-                    {text: 'OK', onPress: () => console.log('OK Pressed')},
-                ],
-                { cancelable: false }
-            )
-          },
-          newTodo(){
-            this.todos.push({
-              id: this.todos.length + 1,
-              title: this.pickupLocation,
-              done: false
-            });
-
-            this.pickupLocation = '';
-          },
-          removeTodo(id){
-            this.todos = this.todos.filter(todo => todo.id !== id);
-          },
-       }
-      }
+    }
 </script>
 
 <style>
@@ -199,6 +153,7 @@ import { Alert } from 'react-native';
 
 .avatar{
   margin-left: 15;
+  margin-right: auto;
   height: 25;
   width: 25;
 }
@@ -207,9 +162,11 @@ import { Alert } from 'react-native';
   color: black;
   font-size: 15;
   font-weight: 400;
+  margin: auto;
 }
 
 .logout{
+  margin-left: auto;
   margin-right: 15;
   height: 25;
   width: 25;
@@ -277,17 +234,6 @@ import { Alert } from 'react-native';
   margin-top: 15;
   align-self: center;
 }
-
-/* .todo{
-  background-color: whitesmoke;
-  flex-direction: row;
-  height: 30;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  align-self: center;
-  
-} */
 
 
 </style>
